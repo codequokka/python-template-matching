@@ -1,0 +1,48 @@
+{
+    "name": "python devcontainer development",
+    "dockerFile": "Dockerfile",
+    "containerEnv": {
+        "TZ": "Asia/Tokyo"
+    },
+    "runArgs": [
+        "--init"
+    ],
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "customizations": {
+        "vscode": {
+            // "settings": {
+            //     "dotfiles.repository": "https://github.com/codequokka/dotfiles.git",
+            //     "dotfiles.targetPath": "~/dotfiles",
+            //     "dotfiles.installCommand": "~/dotfiles/install.sh"
+            // },
+            "settings": {
+                // Editor
+                "editor.formatOnSave": true,
+                // Files
+                "files.insertFinalNewline": true,
+                // Python
+                "python.defaultInterpreterPath": "python3",
+                "python.analysis.completeFunctionParens": true,
+                "python.analysis.typeCheckingMode": "strict",
+                "python.analysis.diagnosticMode": "workspace",
+                "python.languageServer": "Pylance",
+                "[python]": {
+                    "editor.tabSize": 4,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": true,
+                        "source.fixAll": true
+                    },
+                    "editor.defaultFormatter": "ms-python.black-formatter"
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.mypy-type-checker",
+                "charliermarsh.ruff",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
