@@ -1,7 +1,7 @@
-import sys
 import cv2
 
-def pattern_matching(image_path: str, template_path: str) -> None:
+
+def pattern_match(image_path: str, template_path: str) -> None:
     image = cv2.imread(image_path)
     template = cv2.imread(template_path)
 
@@ -23,10 +23,4 @@ def pattern_matching(image_path: str, template_path: str) -> None:
     # 検索対象画像内に、検索結果を長方形で描画
     cv2.rectangle(image, top_left, bottom_right, (0, 0, 255), 2)
 
-    cv2.imwrite("results/result.jpg", image)
-
-
-if __name__ == "__main__":
-    image_path = sys.argv[1]
-    template_path = sys.argv[2]
-    pattern_matching(image_path, template_path)
+    cv2.imwrite("src/results/result.jpg", image)
